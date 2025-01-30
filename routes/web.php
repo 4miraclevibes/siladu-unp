@@ -4,17 +4,18 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\ToolController;
 use App\Http\Controllers\Frontend\AnnouncementController;
 use App\Http\Controllers\Backend\AnnouncementController as BackendAnnouncementController;
+use App\Http\Controllers\Backend\ProjectController as BackendProjectController;
 use App\Http\Controllers\Backend\ArticleController as BackendArticleController;
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\BerandaController;
 use App\Http\Controllers\Backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\Backend\ToolController as BackendToolController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages.frontend.beranda');
-})->name('beranda');
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/project/{project}', [BerandaController::class, 'projectDetail'])->name('project.detail');
 
 Route::get('/profiles', function () {
     return view('pages.frontend.profile');
@@ -70,6 +71,11 @@ Route::middleware('auth')->group(function () {
     Route::put('tools/{tool}', [BackendToolController::class, 'update'])->name('tools.update');
     Route::delete('tools/{tool}', [BackendToolController::class, 'destroy'])->name('tools.destroy');
     Route::delete('tool-images/{toolImage}', [BackendToolController::class, 'deleteImage'])->name('tools.deleteImage');
+    //Projects
+    Route::get('projects', [BackendProjectController::class, 'index'])->name('projects.index');
+    Route::post('projects', [BackendProjectController::class, 'store'])->name('projects.store');
+    Route::put('projects/{project}', [BackendProjectController::class, 'update'])->name('projects.update');
+    Route::delete('projects/{project}', [BackendProjectController::class, 'destroy'])->name('projects.destroy');
 });
 
 require __DIR__.'/auth.php';

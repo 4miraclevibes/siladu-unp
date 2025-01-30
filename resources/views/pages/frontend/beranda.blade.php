@@ -5,8 +5,12 @@
 <div class="container">
     <div class="row align-items-center">
         <div class="col-md-6">
-            <h5 class="display-5">Lorem ipsum dolor sit amet <a href="#" class="text-decoration-underline">consectetur</a> adipiscing elit.</h5>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <h5 class="display-5">Selamat Datang Di Website UPT. Laboratorium Terpadu</h5>
+            <p class="lead">Pusat pelayanan
+                UPT. laboratorium terpadu Universitas Negeri Padang
+                menyediakan berbagai jenis layanan pengujian yang
+                telah terakredetasi nasional dan internasional
+                dan diakui oleh komite akredetasi nasional</p>
         </div>
         <div class="col-md-6 text-center p-0">
             <img src="{{ asset('frontend/assets/images/banner-kanan.png') }}" class="img-fluid" alt="Banner Image">
@@ -14,11 +18,24 @@
     </div>
     <div class="row">
         <div class="col-md-6 bg-dark text-white p-5">
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <h2>Pengujian Telah Terstandar SNI ISO/IEC 17025:2017</h2>
+            <p>Kunjungi Sistem Informasi Laboratorium Terpadu UNP
+                untuk akses informasi lengkap, melakukan pendaftaran pengujian,
+                melihat status pengujian, mengunduh hasil pengujian,
+                dan berbagai layanan digital lainnya. Kami berkomitmen
+                memberikan pelayanan terbaik dengan standar internasional
+                untuk memenuhi kebutuhan pengujian Anda.</p>
         </div>
         <div class="col-md-6 bg-light p-5">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+            <h4>Panduan Mutu</h4>
+            <p>
+                <ol>
+                    <li>Acuan dalam penerapan sistem manajemen berdasarkan ISO/IEC 17025:2017.</li>
+                    <li>Acuan dalam pelaksanaan audit implementasi sistem manajemen baik audit internal maupun audit yang dilakukan oleh pihak ketiga (audit eksternal).</li>
+                    <li>Acuan dalam upaya peningkatan dan pemeliharaan kinerja.</li>
+                    <li>Bukti telah menerapkan Sistem Manajemen Mutu laboratorium berdasarkan ISO/IEC 17025:2017</li>
+                </ol>
+            </p>
         </div>
     </div>
 </div>
@@ -29,37 +46,44 @@
             <img src="{{ asset('frontend/assets/images/mask-group.png') }}" class="img-fluid" alt="Mask Group Image">
         </div>
         <div class="col-md-6">
-            <h2>Lorem ipsum dolor sit amet consectetur</h2>
+            <h2>Tentang Laboratorium Terpadu UNP</h2>
             <div class="mt-4">
-                <h5><i class='bx bx-group'></i> Lorem Ipsum Dolor</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                <h5><i class='bx bx-building'></i> Dasar Hukum</h5>
+                <p>Laboratorium Terpadu Universitas Negeri Padang merupakan salah satu divisi pada Pusat Pengembangan Laboratorium Terpadu di lingkungan UNP yang berdiri berdasarkan Surat Keputusan Rektor No. 3509 Tahun 2017 tentang Standar Pelayanan Publik Universitas Negeri Padang, dan Surat Keputusan Rektor No. 143 Tahun 2021 tentang Penunjukkan Tim Pengelola Laboratorium Terpadu Universitas Negeri Padang.</p>
             </div>
             <div class="mt-4">
-                <h5><i class='bx bx-group'></i> Consectetur Adipiscing</h5>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                <h5><i class='bx bx-user'></i> Kepemimpinan</h5>
+                <p>Laboratorium Terpadu dipimpin oleh seorang Kepala Pusat Pengembangan Laboratorium Terpadu dan bertanggung jawab kepada Rektor melalui Penanggungjawab sekaligus Ketua Lembaga Pengembangan Pembelajaran dan Penjaminan Mutu (LP3M).</p>
             </div>
             <div class="mt-4">
-                <h5><i class='bx bx-book'></i> Sed Do Eiusmod</h5>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h5><i class='bx bx-task'></i> Tugas dan Panduan</h5>
+                <p>Laboratorium Terpadu Universitas Negeri Padang mempunyai tugas melaksanakan layanan laboratorium untuk kegiatan pengujian dan kalibrasi, pendidikan, penelitian dan pengabdian kepada masyarakat. Panduan Mutu Laboratorium Terpadu Universitas Negeri Padang disusun berdasarkan ISO/IEC 17025:2017 mengenai Persyaratan Umum Kompetensi Laboratorium Pengujian dan Kalibrasi sesuai dengan ruang lingkup laboratorium.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container my-5">
-    <h2 class="mb-4">Lorem ipsum dolor sit</h2>
+    <h2 class="mb-4">Pengujian</h2>
     <div class="row">
-        @for ($i = 0; $i < 8; $i++)
+        @foreach ($projects as $project)
         <div class="col-md-3 mb-4">
             <div class="card h-100">
+                <img src="{{ asset('storage/' . $project->image) }}" 
+                     class="card-img-top" 
+                     alt="Gambar Pengujian"
+                     style="height: 200px; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title">Lorem ipsum dolor</h5>
-                    <p class="card-text"><i class='bx bxs-star'></i> 4.8/5</p>
-                    <p class="card-text">Consectetur adipiscing</p>
+                    <h5 class="card-title">{{ $project->name }}</h5>
+                    <p class="card-text">{{ Str::limit($project->description, 100) }}</p>
+                    <a href="{{ route('project.detail', $project) }}" 
+                       class="btn btn-primary btn-sm">
+                        Lihat Detail Pengujian
+                    </a>
                 </div>
             </div>
         </div>
-        @endfor
+        @endforeach
     </div>
 </div>
 
