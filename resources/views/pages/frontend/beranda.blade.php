@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row align-items-center">
+    <div class="row align-items-center bg-light">
         <div class="col-md-6">
             <h5 class="display-5">Selamat Datang Di Website UPT. Laboratorium Terpadu</h5>
             <p class="lead">Pusat pelayanan
@@ -13,7 +13,7 @@
                 dan diakui oleh komite akredetasi nasional</p>
         </div>
         <div class="col-md-6 text-center p-0">
-            <img src="{{ asset('frontend/assets/images/banner-kanan.png') }}" class="img-fluid" alt="Banner Image">
+            <img src="{{ asset('assets/img/backgrounds/labor.jpg') }}" class="img-fluid" alt="Banner Image">
         </div>
     </div>
     <div class="row">
@@ -100,24 +100,7 @@
             <a href="#" class="btn btn-light">Lorem ipsum</a>
         </div>
         <div class="col-md-4 text-center p-0">
-            <img src="{{ asset('frontend/assets/images/people.jpg') }}" class="img-fluid" alt="People Image">
-        </div>
-    </div>
-</div>
-
-<div class="container my-5 text-center">
-    <div class="row">
-        <div class="col-md-4">
-            <h3>560+</h3>
-            <p>Lorem ipsum dolor</p>
-        </div>
-        <div class="col-md-4">
-            <h3>120+</h3>
-            <p>Consectetur adipiscing</p>
-        </div>
-        <div class="col-md-4">
-            <h3>360K+</h3>
-            <p>Sed do eiusmod</p>
+            <img src="{{ asset('assets/img/backgrounds/labor.jpg') }}" class="img-fluid" alt="People Image">
         </div>
     </div>
 </div>
