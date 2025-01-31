@@ -90,17 +90,17 @@
 <div class="container my-5">
     <div class="row align-items-center bg-dark">
         <div class="col-md-8 text-white p-5">
-            <h2 class="display-5">Lorem ipsum dolor <br>sit amet consectetur</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2 class="display-5">Layanan Pengujian <br>Terakreditasi</h2>
+            <p>Laboratorium Terpadu UNP menyediakan layanan pengujian berkualitas dengan standar internasional untuk mendukung kebutuhan akademik dan industri.</p>
             <ul class="list-unstyled">
-                <li class="mb-2"><i class='bx bx-check'></i> Lorem ipsum dolor sit</li>
-                <li class="mb-2"><i class='bx bx-check'></i> Consectetur adipiscing</li>
-                <li class="mb-2"><i class='bx bx-check'></i> Sed do eiusmod tempor</li>
+                <li class="mb-2"><i class='bx bx-check'></i> Pengujian Material dan Konstruksi</li>
+                <li class="mb-2"><i class='bx bx-check'></i> Analisis Kimia dan Lingkungan</li>
+                <li class="mb-2"><i class='bx bx-check'></i> Kalibrasi Peralatan Laboratorium</li>
             </ul>
-            <a href="#" class="btn btn-light">Lorem ipsum</a>
+            <a href="{{ route('project.detail', $projects->random()) }}" class="btn btn-light">Lihat Layanan Kami</a>
         </div>
         <div class="col-md-4 text-center p-0">
-            <img src="{{ asset('assets/img/backgrounds/labor.jpg') }}" class="img-fluid" alt="People Image">
+            <img src="{{ asset('assets/img/backgrounds/labor.jpg') }}" class="img-fluid" alt="Laboratorium Image">
         </div>
     </div>
 </div>
@@ -108,17 +108,17 @@
 <div class="container my-5">
     <div class="row align-items-center">
         <div class="col-md-4 text-center">
-            <img src="{{ asset('frontend/assets/images/costumer.svg') }}" class="img-fluid" alt="Customer Image">
+            <img src="{{ asset('frontend/assets/images/costumer.svg') }}" class="img-fluid" alt="Testimoni Pengguna">
         </div>
         <div class="col-md-8">
-            <h5 class="text-primary">Lorem Ipsum</h5>
-            <h2>Dolor sit amet consectetur</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."</p>
+            <h5 class="text-primary">Testimoni Pengguna</h5>
+            <h2>Pengalaman Menggunakan Layanan Laboratorium Terpadu UNP</h2>
+            <p>"Laboratorium Terpadu UNP memberikan pelayanan yang sangat profesional dalam pengujian sampel penelitian kami. Hasil pengujian yang akurat dan tepat waktu sangat membantu dalam penyelesaian penelitian. Fasilitas dan peralatan yang modern serta staff yang kompeten membuat kami sangat puas dengan layanan yang diberikan."</p>
             <div class="d-flex align-items-center">
-                <img src="{{ asset('assets/img/avatars/1.png') }}" class="rounded-circle me-3" alt="Customer Avatar" width="50" height="50">
+                <img src="{{ asset('assets/img/avatars/1.png') }}" class="rounded-circle me-3" alt="Foto Pengguna" width="50" height="50">
                 <div>
-                    <h5 class="mb-0">Lorem Ipsum</h5>
-                    <p class="mb-0">Dolor sit</p>
+                    <h5 class="mb-0">Dr. Ir. Ahmad Fauzi</h5>
+                    <p class="mb-0">Peneliti Senior - Fakultas Teknik</p>
                     <div class="text-warning">
                         <i class='bx bxs-star'></i>
                         <i class='bx bxs-star'></i>
