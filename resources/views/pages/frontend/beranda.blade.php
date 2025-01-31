@@ -97,7 +97,9 @@
                 <li class="mb-2"><i class='bx bx-check'></i> Analisis Kimia dan Lingkungan</li>
                 <li class="mb-2"><i class='bx bx-check'></i> Kalibrasi Peralatan Laboratorium</li>
             </ul>
+            @if ($projects->count() > 0)
             <a href="{{ route('project.detail', $projects->random()) }}" class="btn btn-light">Lihat Layanan Kami</a>
+            @endif
         </div>
         <div class="col-md-4 text-center p-0">
             <img src="{{ asset('assets/img/backgrounds/labor.jpg') }}" class="img-fluid" alt="Laboratorium Image">

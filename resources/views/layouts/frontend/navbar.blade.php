@@ -18,7 +18,7 @@
                     <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Tools</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Pengumuman</a>
+                    <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Berita</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('article', 'article.show') ? 'active' : '' }}" aria-current="page" href="{{ route('article') }}">Artikel</a>
