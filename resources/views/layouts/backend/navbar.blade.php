@@ -64,6 +64,13 @@
                 <div>Pengujian</div>
               </a>
             </li>
+            <!-- Projects -->
+            <li class="menu-item {{ Route::is('projects*') ? 'active' : '' }}">
+              <a href="{{ route('projects.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-download"></i>
+                <div>Download</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->

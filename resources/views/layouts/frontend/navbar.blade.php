@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Galeri</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Download</a>
+                </li>
             </ul>
             @if (Auth::check())
                 <ul class="navbar-nav">
