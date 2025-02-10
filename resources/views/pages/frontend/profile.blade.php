@@ -61,7 +61,7 @@
 
     <!-- Visi Misi Section -->
     <div class="row mb-5">
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-md-12 mb-12" data-aos="fade-up" data-aos-delay="100">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-4">
                     <div class="text-center mb-4">
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-md-12 mt-3" data-aos="fade-up" data-aos-delay="200">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-4">
                     <div class="text-center mb-4">

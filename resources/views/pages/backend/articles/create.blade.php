@@ -5,8 +5,24 @@
     <div class="card mb-4">
         <h5 class="card-header">Buat Artikel Baru</h5>
         <div class="card-body">
-            <form action="{{ route('articles.store') }}" method="POST">
+            <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="thumbnail" class="form-label">Thumbnail</label>
+                        <input type="file" 
+                               class="form-control @error('thumbnail') is-invalid @enderror" 
+                               id="thumbnail" 
+                               name="thumbnail"
+                               accept="image/*"
+                               required>
+                        @error('thumbnail')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="title" class="form-label">Judul Artikel</label>

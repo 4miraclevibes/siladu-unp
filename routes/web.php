@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\BerandaController;
 use App\Http\Controllers\Backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\Backend\ToolController as BackendToolController;
+use App\Http\Controllers\Backend\DownloadController as BackendDownloadController;
+use App\Http\Controllers\Frontend\DownloadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
@@ -31,6 +33,7 @@ Route::get('/announcement/{id}', [AnnouncementController::class, 'show'])->name(
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/download', [DownloadController::class, 'index'])->name('download');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -76,6 +79,11 @@ Route::middleware('auth')->group(function () {
     Route::post('projects', [BackendProjectController::class, 'store'])->name('projects.store');
     Route::put('projects/{project}', [BackendProjectController::class, 'update'])->name('projects.update');
     Route::delete('projects/{project}', [BackendProjectController::class, 'destroy'])->name('projects.destroy');
+    //Downloads
+    Route::get('downloads', [BackendDownloadController::class, 'index'])->name('downloads.index');
+    Route::post('downloads', [BackendDownloadController::class, 'store'])->name('downloads.store');
+    Route::put('downloads/{download}', [BackendDownloadController::class, 'update'])->name('downloads.update');
+    Route::delete('downloads/{download}', [BackendDownloadController::class, 'destroy'])->name('downloads.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -23,12 +23,16 @@ class AnnouncementController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'thumbnail' => 'required',
             'title' => 'required|max:255',
             'content' => 'required',
             'status' => 'required|in:draft,publish',
         ]);
 
         $validated['user_id'] = Auth::id();
+        if($request->hasFile('thumbnail')) {
+            $validated['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
+        }
 
         Announcement::create($validated);
 
@@ -50,10 +54,15 @@ class AnnouncementController extends Controller
     public function update(Request $request, Announcement $announcement)
     {
         $validated = $request->validate([
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20480',
             'title' => 'required|max:255',
             'content' => 'required',
             'status' => 'required|in:draft,publish',
         ]);
+
+        if($request->hasFile('thumbnail')) {
+            $validated['thumbnail'] = $request->file('thumbnail')->store('thumbnail', 'public');
+        }
 
         $announcement->update($validated);
 

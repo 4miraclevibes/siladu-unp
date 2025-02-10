@@ -5,7 +5,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Edit Pengumuman</h5>
         <div class="card-body">
-            <form action="{{ route('announcements.update', $announcement->id) }}" method="POST">
+            <form action="{{ route('announcements.update', $announcement->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row mb-3">
@@ -52,6 +52,31 @@
                             <option value="publish" {{ (old('status', $announcement->status) == 'publish') ? 'selected' : '' }}>Publish</option>
                         </select>
                         @error('status')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="thumbnail" class="form-label">Thumbnail</label>
+                        @if($article->thumbnail)
+                            <div class="mb-3">
+                                <img src="{{ asset('storage/' . $article->thumbnail) }}" 
+                                     alt="Current Thumbnail" 
+                                     class="img-thumbnail" 
+                                     style="max-height: 200px">
+                            </div>
+                        @endif
+                        <input type="file" 
+                               class="form-control @error('thumbnail') is-invalid @enderror" 
+                               id="thumbnail" 
+                               name="thumbnail"
+                               accept="image/*">
+                        <small class="text-muted">Biarkan kosong jika tidak ingin mengubah thumbnail</small>
+                        @error('thumbnail')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

@@ -15,7 +15,7 @@
                     <a class="nav-link {{ Route::is('profiles') ? 'active' : '' }}" aria-current="page" href="{{ route('profiles') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Tools</a>
+                    <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Alat Laboratorium</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Berita</a>
@@ -27,7 +27,7 @@
                     <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Download</a>
+                    <a class="nav-link {{ Route::is('download') ? 'active' : '' }}" aria-current="page" href="{{ route('download') }}">Download</a>
                 </li>
             </ul>
             @if (Auth::check())
@@ -40,6 +40,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                    </li>
+                </ul>
+            @else
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
                 </ul>
             @endif

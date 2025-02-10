@@ -155,19 +155,33 @@
                         <div class="announcement-list">
                             @foreach($announcements as $announcement)
                             <div class="announcement-item mb-4">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class='bx bx-calendar text-primary me-2'></i>
-                                    <small class="text-muted">{{ $announcement->created_at->format('d M Y') }}</small>
-                                    @if($announcement->user)
-                                    <i class='bx bx-user text-primary ms-3 me-2'></i>
-                                    <small class="text-muted">{{ $announcement->user->name }}</small>
-                                    @endif
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="{{ route('announcement.show', $announcement) }}">
+                                            <img src="{{ asset('storage/' . $announcement->thumbnail) }}" 
+                                                 alt="{{ $announcement->title }}"
+                                                 class="img-fluid rounded mb-3"
+                                                 style="width: 100%; height: 150px; object-fit: cover;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class='bx bx-calendar text-primary me-2'></i>
+                                            <small class="text-muted">{{ $announcement->created_at->format('d M Y') }}</small>
+                                            @if($announcement->user)
+                                            <i class='bx bx-user text-primary ms-3 me-2'></i>
+                                            <small class="text-muted">{{ $announcement->user->name }}</small>
+                                            @endif
+                                        </div>
+                                        <h5 class="mb-2">
+                                            <a href="{{ route('announcement.show', $announcement) }}" 
+                                               class="text-decoration-none text-dark">
+                                                {{ $announcement->title }}
+                                            </a>
+                                        </h5>
+                                        <p class="text-muted mb-0">{!! Str::limit(strip_tags($announcement->content), 100) !!}</p>
+                                    </div>
                                 </div>
-                                <h5 class="mb-2">{{ $announcement->title }}</h5>
-                                <p class="text-muted mb-0">{!! Str::limit(strip_tags($announcement->content), 150) !!}</p>
-                                @if($announcement->status === 'published')
-                                <a href="#" class="btn btn-link text-primary p-0 mt-2">Baca selengkapnya</a>
-                                @endif
                             </div>
                             @endforeach
                         </div>
@@ -186,19 +200,33 @@
                         <div class="article-list">
                             @foreach($articles as $article)
                             <div class="article-item mb-4">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class='bx bx-calendar text-primary me-2'></i>
-                                    <small class="text-muted">{{ $article->created_at->format('d M Y') }}</small>
-                                    @if($article->user)
-                                    <i class='bx bx-user text-primary ms-3 me-2'></i>
-                                    <small class="text-muted">{{ $article->user->name }}</small>
-                                    @endif
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="{{ route('article.show', $article) }}">
+                                            <img src="{{ asset('storage/' . $article->thumbnail) }}" 
+                                                 alt="{{ $article->title }}"
+                                                 class="img-fluid rounded mb-3"
+                                                 style="width: 100%; height: 150px; object-fit: cover;">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class='bx bx-calendar text-primary me-2'></i>
+                                            <small class="text-muted">{{ $article->created_at->format('d M Y') }}</small>
+                                            @if($article->user)
+                                            <i class='bx bx-user text-primary ms-3 me-2'></i>
+                                            <small class="text-muted">{{ $article->user->name }}</small>
+                                            @endif
+                                        </div>
+                                        <h5 class="mb-2">
+                                            <a href="{{ route('article.show', $article) }}" 
+                                               class="text-decoration-none text-dark">
+                                                {{ $article->title }}
+                                            </a>
+                                        </h5>
+                                        <p class="text-muted mb-2">{!! Str::limit(strip_tags($article->content), 100) !!}</p>
+                                    </div>
                                 </div>
-                                <h5 class="mb-2">{{ $article->title }}</h5>
-                                <p class="text-muted mb-2">{!! Str::limit(strip_tags($article->content), 150) !!}</p>
-                                @if($article->status === 'published')
-                                <a href="#" class="btn btn-link text-primary p-0">Baca selengkapnya</a>
-                                @endif
                             </div>
                             @endforeach
                         </div>
