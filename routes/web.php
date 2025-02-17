@@ -23,6 +23,11 @@ Route::get('/profiles', function () {
     return view('pages.frontend.profile');
 })->name('profiles');
 
+Route::get('/contact', function () {
+    return view('pages.frontend.contact');
+})->name('contact');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
