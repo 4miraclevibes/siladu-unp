@@ -59,10 +59,6 @@
       .dt-input{
           margin-right: 15px !important;
       }
-      .description-container {
-          max-width: 100%;
-      }
-
       .description-container .description {
           width: 100%;
           word-wrap: break-word;

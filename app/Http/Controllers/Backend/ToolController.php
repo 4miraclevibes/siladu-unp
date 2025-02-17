@@ -17,6 +17,11 @@ class ToolController extends Controller
         return view('pages.backend.tools.index', compact('tools'));
     }
 
+    public function create()
+    {
+        return view('pages.backend.tools.create');
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -46,6 +51,11 @@ class ToolController extends Controller
             ->with('success', 'Alat berhasil dibuat!');
     }
 
+    public function edit(Tool $tool)
+    {
+        return view('pages.backend.tools.edit', compact('tool'));
+    }
+    
     public function update(Request $request, Tool $tool)
     {
         $validated = $request->validate([
@@ -84,6 +94,11 @@ class ToolController extends Controller
         return redirect()
             ->route('tools.index')
             ->with('success', 'Alat berhasil dihapus!');
+    }
+
+    public function show(Tool $tool)
+    {
+        return view('pages.backend.tools.show', compact('tool'));
     }
 
     public function deleteImage(ToolImage $toolImage)

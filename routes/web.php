@@ -33,6 +33,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/tool', [ToolController::class, 'index'])->name('tool');
+Route::get('/tool/{tool}', [ToolController::class, 'detail'])->name('tool.detail');
 Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
 Route::get('/announcement/{id}', [AnnouncementController::class, 'show'])->name('announcement.show');
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
@@ -76,7 +77,10 @@ Route::middleware('auth')->group(function () {
     //Tools
     Route::get('tools', [BackendToolController::class, 'index'])->name('tools.index');
     Route::post('tools', [BackendToolController::class, 'store'])->name('tools.store');
+    Route::get('tools/create', [BackendToolController::class, 'create'])->name('tools.create');
+    Route::get('tools/{tool}/edit', [BackendToolController::class, 'edit'])->name('tools.edit');
     Route::put('tools/{tool}', [BackendToolController::class, 'update'])->name('tools.update');
+    Route::get('tools/{tool}', [BackendToolController::class, 'show'])->name('tools.show');
     Route::delete('tools/{tool}', [BackendToolController::class, 'destroy'])->name('tools.destroy');
     Route::delete('tool-images/{toolImage}', [BackendToolController::class, 'deleteImage'])->name('tools.deleteImage');
     //Projects

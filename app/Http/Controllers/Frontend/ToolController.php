@@ -27,6 +27,11 @@ class ToolController extends Controller
         return view('pages.frontend.tool', compact('tools'));
     }
 
+    public function detail(Tool $tool)
+    {
+        return view('pages.frontend.tool-detail', compact('tool'));
+    }
+
     public function show($id)
     {
         $tool = Tool::with(['user', 'toolImages'])

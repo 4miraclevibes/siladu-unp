@@ -22,11 +22,11 @@
             </iframe>
 
             <div class="mt-4">
-                <p><i class="bi bi-geo-alt-fill"></i> Jl. Prof. Dr. Hamka, Air Tawar Bar., Kec. Padang Utara, Kota Padang, Sumatera Barat 25171</p>
-                <p><i class="bi bi-telephone-fill"></i> 0822-8757-9638</p>
-                <p><i class="bi bi-telephone-fill"></i> 0853-56001235</p>
-                <p><i class="bi bi-envelope-fill"></i> labterpadu@unp.ac.id</p>
-                <p><i class="bi bi-globe"></i> https://labterpadu.unp.ac.id/</p>
+                <p><i class="bx bx-map"></i> Jl. Prof. Dr. Hamka, Air Tawar Bar., Kec. Padang Utara, Kota Padang, Sumatera Barat 25171</p>
+                <p><i class="bx bx-phone"></i> 0822-8757-9638</p>
+                <p><i class="bx bx-phone"></i> 0853-56001235</p>
+                <p><i class="bx bx-envelope"></i> labterpadu@unp.ac.id</p>
+                <p><i class="bx bx-globe"></i> https://labterpadu.unp.ac.id/</p>
             </div>
         </div>
 
