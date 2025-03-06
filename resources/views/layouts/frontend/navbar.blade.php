@@ -32,6 +32,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" aria-current="page" href="{{ route('contact') }}">Hubungi Kami</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="https://siladu.layananberhentikuliah.com">Pengajuan</a>
+                </li>
             </ul>
             @if (Auth::check())
                 <ul class="navbar-nav">
