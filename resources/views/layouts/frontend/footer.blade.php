@@ -23,7 +23,7 @@
             <div class="col-md-2">
                 <h5>Contact Us</h5>
                 <p>Jl. Prof. Dr. Hamka, Air Tawar Padang, Sumatera Barat</p>
-                <p>Email: labterpaduunp@unp.ac.id</p>
+                <p>Email: labterpadu@unp.ac.id</p>
                 <p>Telp: (0751) 7055644</p>
             </div>
         </div>
