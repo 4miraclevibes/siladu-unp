@@ -62,9 +62,9 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="thumbnail" class="form-label">Thumbnail</label>
-                        @if($article->thumbnail)
+                        @if($announcement->thumbnail)
                             <div class="mb-3">
-                                <img src="{{ asset('storage/' . $article->thumbnail) }}" 
+                                <img src="{{ asset('storage/' . $announcement->thumbnail) }}" 
                                      alt="Current Thumbnail" 
                                      class="img-thumbnail" 
                                      style="max-height: 200px">
