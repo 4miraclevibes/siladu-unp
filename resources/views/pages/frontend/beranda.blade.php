@@ -14,7 +14,7 @@
             <div class="carousel-item active">
                 <img src="{{ asset('frontend/carousel/img1.jpg') }}" class="d-block w-100" alt="Gambar 1">
                 <div class="carousel-caption">
-                    <h1 data-aos="fade-up">Laboratorium Terpadu UNP</h1>
+                    <h1 data-aos="fade-up">UPT Laboratorium Terpadu UNP</h1>
                     <p data-aos="fade-up" data-aos-delay="200">Pusat Layanan Pengujian Berkualitas</p>
                 </div>
             </div>
