@@ -33,7 +33,7 @@
             <li class="menu-item {{ Route::is('announcements*') ? 'active' : '' }}">
               <a href="{{ route('announcements.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-broadcast"></i>
-                <div>Pengumuman</div>
+                <div>Berita</div>
               </a>
             </li>
             <!-- Articles -->

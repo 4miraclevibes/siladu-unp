@@ -15,7 +15,7 @@
                     <a class="nav-link {{ Route::is('profiles') ? 'active' : '' }}" aria-current="page" href="{{ route('profiles') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Alat Laboratorium</a>
+                    <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Fasilitas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Berita</a>

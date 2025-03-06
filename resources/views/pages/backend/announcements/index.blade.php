@@ -5,11 +5,11 @@
 <div class="container-xxl flex-grow-1 container-p-y">
   <div class="card">
     <div class="card-header">
-      <a href="{{ route('announcements.create') }}" class="btn btn-primary btn-sm">Buat Pengumuman</a>
+      <a href="{{ route('announcements.create') }}" class="btn btn-primary btn-sm">Buat Berita</a>
     </div>
   </div>
   <div class="card mt-2">
-    <h5 class="card-header">Daftar Pengumuman</h5>
+    <h5 class="card-header">Daftar Berita</h5>
     <div class="table-responsive text-nowrap p-3">
       <table class="table" id="example">
         <thead>
