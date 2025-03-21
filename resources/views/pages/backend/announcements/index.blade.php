@@ -27,7 +27,7 @@
           @foreach ($announcements as $announcement)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $announcement->title }}</td>
+            <td>{!! Str::words($announcement->title, 5) !!}</td>
             <td>{!! Str::words(strip_tags($announcement->content), 5) !!}</td>
             <td>
               <span class="badge bg-{{ $announcement->status === 'publish' ? 'success' : 'secondary' }}">
