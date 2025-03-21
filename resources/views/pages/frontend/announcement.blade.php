@@ -26,6 +26,9 @@
         @foreach($announcements as $announcement)
         <div class="col-md-6 mb-4">
             <div class="card h-100">
+                @if($announcement->thumbnail)
+                    <img src="{{ Storage::url($announcement->thumbnail) }}" class="card-img-top" alt="{{ $announcement->title }}" style="height: 200px; object-fit: cover;">
+                @endif
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <small class="text-muted">
