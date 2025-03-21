@@ -54,13 +54,42 @@
     </div>
 
     <!-- Pagination -->
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-12">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {{ $announcements->links() }}
-                </ul>
-            </nav>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    Showing {{ $announcements->firstItem() }} to {{ $announcements->lastItem() }} of {{ $announcements->total() }} results
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0">
+                        @if ($announcements->onFirstPage())
+                            <li class="page-item disabled">
+                                <span class="page-link">« Previous</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $announcements->previousPageUrl() }}" rel="prev">« Previous</a>
+                            </li>
+                        @endif
+
+                        @foreach ($announcements->getUrlRange(1, $announcements->lastPage()) as $page => $url)
+                            <li class="page-item {{ $page == $announcements->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                            </li>
+                        @endforeach
+
+                        @if ($announcements->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $announcements->nextPageUrl() }}" rel="next">Next »</a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <span class="page-link">Next »</span>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
