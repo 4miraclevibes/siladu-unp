@@ -171,7 +171,7 @@
                         <h3 class="card-title mt-3 fw-bold">Struktur Organisasi</h3>
                     </div>
                     <div class="text-center">
-                        <img src="{{ asset('frontend/images/struktur-organisasi.png') }}" alt="Struktur Organisasi" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/images/struktur-organisasi.png') }}" alt="Struktur Organisasi" class="img-fluid">
                     </div>
                 </div>
             </div>
