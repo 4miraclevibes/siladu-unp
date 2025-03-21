@@ -58,16 +58,17 @@
 }
 .tool-swiper .swiper-slide {
     text-align: center;
-    min-height: 300px;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .tool-swiper img {
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
     height: auto;
-    max-width: none;
-    max-height: none;
+    object-fit: contain;
     border-radius: 8px;
 }
 .description-content {
