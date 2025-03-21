@@ -85,7 +85,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('tool-images/{toolImage}', [BackendToolController::class, 'deleteImage'])->name('tools.deleteImage');
     //Projects
     Route::get('projects', [BackendProjectController::class, 'index'])->name('projects.index');
+    Route::get('projects/create', [BackendProjectController::class, 'create'])->name('projects.create');
     Route::post('projects', [BackendProjectController::class, 'store'])->name('projects.store');
+    Route::get('projects/{project}', [BackendProjectController::class, 'show'])->name('projects.show');
+    Route::get('projects/{project}/edit', [BackendProjectController::class, 'edit'])->name('projects.edit');
     Route::put('projects/{project}', [BackendProjectController::class, 'update'])->name('projects.update');
     Route::delete('projects/{project}', [BackendProjectController::class, 'destroy'])->name('projects.destroy');
     //Downloads
