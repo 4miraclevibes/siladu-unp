@@ -61,7 +61,7 @@
             <li class="menu-item {{ Route::is('projects*') ? 'active' : '' }}">
               <a href="{{ route('projects.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-folder"></i>
-                <div>Pengajuan</div>
+                <div>Project</div>
               </a>
             </li>
             <!-- Downloads -->
