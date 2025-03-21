@@ -32,7 +32,7 @@
                                   id="editor" 
                                   name="description" 
                                   rows="4" 
-                                  required>{{ old('description', $project->description) }}</textarea>
+                                  >{{ old('description', $project->description) }}</textarea>
                         @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}

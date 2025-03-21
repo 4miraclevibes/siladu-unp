@@ -31,7 +31,7 @@
                                   id="editor" 
                                   name="description" 
                                   rows="4" 
-                                  required>{{ old('description') }}</textarea>
+                                  >{{ old('description') }}</textarea>
                         @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
