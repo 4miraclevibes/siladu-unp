@@ -43,7 +43,7 @@
 
 <div class="container py-5">
     <!-- Sejarah Section -->
-    <div class="row mb-5">
+    <div class="row mb-5" id="tentang-labdu">
         <div class="col-12" data-aos="fade-up">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
@@ -60,7 +60,7 @@
     </div>
 
     <!-- Visi Misi Section -->
-    <div class="row mb-5">
+    <div class="row mb-5" id="visi-misi">
         <div class="col-md-12 mb-12" data-aos="fade-up" data-aos-delay="100">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-4">
@@ -95,7 +95,7 @@
     </div>
 
     <!-- Tujuan Section -->
-    <div class="row mb-5">
+    <div class="row mb-5" id="tujuan">
         <div class="col-12" data-aos="fade-up" data-aos-delay="300">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
@@ -128,7 +128,7 @@
     </div>
 
     <!-- Panduan Mutu Section -->
-    <div class="row">
+    <div class="row mb-5" id="panduan-mutu">
         <div class="col-12" data-aos="fade-up" data-aos-delay="400">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
@@ -155,6 +155,23 @@
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Struktur Organisasi Section -->
+    <div class="row mb-5" id="struktur-organisasi">
+        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <i class='bx bx-sitemap text-primary' style="font-size: 3rem;"></i>
+                        <h3 class="card-title mt-3 fw-bold">Struktur Organisasi</h3>
+                    </div>
+                    <div class="text-center">
+                        <img src="{{ asset('frontend/images/struktur-organisasi.jpg') }}" alt="Struktur Organisasi" class="img-fluid">
                     </div>
                 </div>
             </div>

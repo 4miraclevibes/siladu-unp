@@ -11,8 +11,15 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('beranda') ? 'active' : '' }}" aria-current="page" href="{{ route('beranda') }}">Beranda</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Route::is('profiles') ? 'active' : '' }}" aria-current="page" href="{{ route('profiles') }}">Profile</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ Route::is('profiles') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profil
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('profiles') }}#tentang-labdu">Tentang Labdu</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profiles') }}#visi-misi">Visi & Misi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profiles') }}#struktur-organisasi">Struktur Organisasi</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('tool') ? 'active' : '' }}" aria-current="page" href="{{ route('tool') }}">Fasilitas</a>
