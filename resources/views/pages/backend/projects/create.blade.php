@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" 
-                                  id="description" 
+                                  id="editor" 
                                   name="description" 
                                   rows="4" 
                                   required>{{ old('description') }}</textarea>
