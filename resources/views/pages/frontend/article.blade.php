@@ -5,7 +5,7 @@
     <!-- Header -->
     <div class="row mb-4">
         <div class="col-12">
-            <h2 class="text-center mb-4">Artikel</h2>
+            <h2 class="text-center mb-4">Our Team</h2>
             <div class="d-flex justify-content-end">
                 <div class="col-md-4">
                     <form action="{{ route('article') }}" method="GET">

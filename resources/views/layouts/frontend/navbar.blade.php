@@ -21,13 +21,13 @@
                     <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('article', 'article.show') ? 'active' : '' }}" aria-current="page" href="{{ route('article') }}">Artikel</a>
+                    <a class="nav-link {{ Route::is('article', 'article.show') ? 'active' : '' }}" aria-current="page" href="{{ route('article') }}">Our Team</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Galeri</a>
+                    <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Tarif</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('download') ? 'active' : '' }}" aria-current="page" href="{{ route('download') }}">Download</a>
+                    <a class="nav-link {{ Route::is('download') ? 'active' : '' }}" aria-current="page" href="{{ route('download') }}">Unduhan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" aria-current="page" href="{{ route('contact') }}">Hubungi Kami</a>

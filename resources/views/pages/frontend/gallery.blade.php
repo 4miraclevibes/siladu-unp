@@ -5,7 +5,7 @@
     <!-- Header -->
     <div class="row mb-4">
         <div class="col-12">
-            <h2 class="text-center mb-4">Galeri Kegiatan</h2>
+            <h2 class="text-center mb-4">Tarif</h2>
             <div class="d-flex justify-content-end">
                 <div class="col-md-4">
                     <form action="{{ route('gallery') }}" method="GET">

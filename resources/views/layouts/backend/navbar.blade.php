@@ -40,35 +40,35 @@
             <li class="menu-item {{ Route::is('articles*') ? 'active' : '' }}">
               <a href="{{ route('articles.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-book"></i>
-                <div>Artikel</div>
+                <div>Our Team</div>
               </a>
             </li>
             <!-- Galleries -->
             <li class="menu-item {{ Route::is('galleries*') ? 'active' : '' }}">
               <a href="{{ route('galleries.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-images"></i>
-                <div>Galeri</div>
+                <div>Tarif</div>
               </a>
             </li>
             <!-- Tools -->
             <li class="menu-item {{ Route::is('tools*') ? 'active' : '' }}">
               <a href="{{ route('tools.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-wrench"></i>
-                <div>Alat</div>
+                <div>Fasilitas</div>
               </a>
             </li>
             <!-- Projects -->
             <li class="menu-item {{ Route::is('projects*') ? 'active' : '' }}">
               <a href="{{ route('projects.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-folder"></i>
-                <div>Pengujian</div>
+                <div>Pengajuan</div>
               </a>
             </li>
             <!-- Downloads -->
             <li class="menu-item {{ Route::is('downloads*') ? 'active' : '' }}">
               <a href="{{ route('downloads.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-download"></i>
-                <div>File Download</div>
+                <div>Unduhan</div>
               </a>
             </li>
           </ul>
