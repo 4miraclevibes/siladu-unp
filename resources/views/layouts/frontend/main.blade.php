@@ -34,7 +34,7 @@
       }
 
       body > div.container.my-5 > div > div > div > div > div.announcement-content > figure > img {
-        max-width: 900px;
+        max-width: 1080px;
       }
     </style>
     @stack('styles')
