@@ -5,7 +5,7 @@
     <!-- Header -->
     <div class="row mb-4">
         <div class="col-12">
-            <h2 class="text-center mb-4">Peralatan Laboratorium</h2>
+            <h2 class="text-center mb-4">Fasilitas</h2>
             <div class="d-flex justify-content-end">
                 <div class="col-md-4">
                     <form action="{{ route('tool') }}" method="GET">
@@ -56,13 +56,49 @@
     </div>
 
     <!-- Pagination -->
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-12">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {{ $tools->links() }}
-                </ul>
-            </nav>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-muted">
+                    Menampilkan {{ $tools->firstItem() }} sampai {{ $tools->lastItem() }} dari {{ $tools->total() }} data
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0">
+                        {{-- Previous Page Link --}}
+                        @if ($tools->onFirstPage())
+                            <li class="page-item disabled">
+                                <span class="page-link">‹</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $tools->previousPageUrl() }}" aria-label="Previous">
+                                    <span aria-hidden="true">‹</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        {{-- Pagination Elements --}}
+                        @for ($i = 1; $i <= $tools->lastPage(); $i++)
+                            <li class="page-item {{ ($tools->currentPage() == $i) ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $tools->url($i) }}">{{ $i }}</a>
+                            </li>
+                        @endfor
+
+                        {{-- Next Page Link --}}
+                        @if ($tools->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $tools->nextPageUrl() }}" aria-label="Next">
+                                    <span aria-hidden="true">›</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <span class="page-link">›</span>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>

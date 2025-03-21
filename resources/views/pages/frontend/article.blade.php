@@ -10,7 +10,7 @@
                 <div class="col-md-4">
                     <form action="{{ route('article') }}" method="GET">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Cari artikel..." name="search">
+                            <input type="text" class="form-control" placeholder="Cari our team..." name="search">
                             <button class="btn btn-dark" type="button">
                                 <i class='bx bx-search'></i>
                             </button>
