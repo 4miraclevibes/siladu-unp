@@ -32,6 +32,10 @@
         border: 1px solid #000;
         width: 100px;
       }
+
+      body > div.container.my-5 > div > div > div > div > div.announcement-content > figure > img {
+        max-width: 75%;
+      }
     </style>
     @stack('styles')
   </head>
