@@ -35,6 +35,16 @@
 
       body > div.container.my-5 > div > div > div > div > div.announcement-content > figure > img {
         max-width: 1000px;
+        min-width: 100%;
+        margin: 0 auto;
+        display: block;
+      }
+
+      body > div.container.my-5 > div > div > div > div > div.article-content > p > img{
+        max-width: 1000px;
+        margin: 0 auto;
+        display: block;
+        min-width: 100%;
       }
     </style>
     @stack('styles')
