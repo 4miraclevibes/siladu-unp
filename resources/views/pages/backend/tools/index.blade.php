@@ -23,6 +23,7 @@
             <th class="text-white">Jumlah Foto</th>
             <th class="text-white">Dibuat Oleh</th>
             <th class="text-white">Tanggal</th>
+            <th class="text-white">Tanggal Perubahan</th>
             <th class="text-white">Actions</th>
           </tr>
         </thead>
@@ -40,12 +41,13 @@
             <td>{{ $tool->toolImages->count() }} foto</td>
             <td>{{ $tool->user->name }}</td>
             <td>{{ $tool->created_at->format('d M Y') }}</td>
+            <td>{{ $tool->updated_at->format('d M Y') }}</td>
             <td>
-              <a href="{{ route('tools.show', $tool->id) }}" 
+              <a href="{{ route('tools.show', $tool->id) }}"
                  class="btn btn-info btn-sm">
                 <i class='bx bx-show'></i>
               </a>
-              <a href="{{ route('tools.edit', $tool->id) }}" 
+              <a href="{{ route('tools.edit', $tool->id) }}"
                  class="btn btn-warning btn-sm">
                 <i class='bx bx-edit'></i>
               </a>
