@@ -13,7 +13,7 @@ class ToolController extends Controller
 {
     public function index()
     {
-        $tools = Tool::with(['user', 'toolImages'])->latest()->get();
+        $tools = Tool::with(['user', 'toolImages'])->orderBy('updated_at', 'desc')->get();
         return view('pages.backend.tools.index', compact('tools'));
     }
 
@@ -32,13 +32,13 @@ class ToolController extends Controller
         ]);
 
         $validated['user_id'] = Auth::id();
-        
+
         $tool = Tool::create($validated);
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $path = $image->store('tools', 'public');
-                
+
                 ToolImage::create([
                     'tool_id' => $tool->id,
                     'image' => $path
@@ -55,14 +55,15 @@ class ToolController extends Controller
     {
         return view('pages.backend.tools.edit', compact('tool'));
     }
-    
+
     public function update(Request $request, Tool $tool)
     {
         $validated = $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
             'status' => 'required|in:draft,publish',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'updated_at' => 'nullable|date',
         ]);
 
         $tool->update($validated);
@@ -70,7 +71,7 @@ class ToolController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $path = $image->store('tools', 'public');
-                
+
                 ToolImage::create([
                     'tool_id' => $tool->id,
                     'image' => $path

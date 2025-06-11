@@ -12,7 +12,7 @@ class ToolController extends Controller
     {
         $tools = Tool::with(['user', 'toolImages'])
             ->where('status', 'publish')
-            ->latest()
+            ->orderBy('updated_at', 'desc')
             ->paginate(8);
         if($request->search) {
             $tools = Tool::with(['user', 'toolImages'])
@@ -37,7 +37,7 @@ class ToolController extends Controller
         $tool = Tool::with(['user', 'toolImages'])
             ->where('status', 'publish')
             ->findOrFail($id);
-        
+
         return response()->json($tool);
     }
 }
