@@ -71,6 +71,34 @@
                 <div>Unduhan</div>
               </a>
             </li>
+            <!-- Contacts -->
+            <li class="menu-item {{ Route::is('contacts*') ? 'active' : '' }}">
+              <a href="{{ route('contacts.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-envelope"></i>
+                <div>Pesan Kontak</div>
+              </a>
+            </li>
+            <!-- Announcement Bars -->
+            <li class="menu-item {{ Route::is('announcement-bars*') ? 'active' : '' }}">
+              <a href="{{ route('announcement-bars.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-message-square-dots"></i>
+                <div>Announcement Bar</div>
+              </a>
+            </li>
+            <!-- Hero Carousels -->
+            <li class="menu-item {{ Route::is('hero-carousels*') ? 'active' : '' }}">
+              <a href="{{ route('hero-carousels.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-carousel"></i>
+                <div>Hero Carousel</div>
+              </a>
+            </li>
+            <!-- Timelines -->
+            <li class="menu-item {{ Route::is('timelines*') ? 'active' : '' }}">
+              <a href="{{ route('timelines.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-time-five"></i>
+                <div>Timeline</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->

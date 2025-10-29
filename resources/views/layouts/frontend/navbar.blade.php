@@ -27,9 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('announcement', 'announcement.show') ? 'active' : '' }}" aria-current="page" href="{{ route('announcement') }}">Berita</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Route::is('article', 'article.show') ? 'active' : '' }}" aria-current="page" href="{{ route('article') }}">Our Team</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Route::is('gallery') ? 'active' : '' }}" aria-current="page" href="{{ route('gallery') }}">Tarif</a>
                 </li>
@@ -37,11 +37,11 @@
                     <a class="nav-link {{ Route::is('download') ? 'active' : '' }}" aria-current="page" href="{{ route('download') }}">Unduhan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" aria-current="page" href="{{ route('contact') }}">Hubungi Kami</a>
+                    <a class="nav-link {{ Route::is('contact.index') ? 'active' : '' }}" aria-current="page" href="{{ route('contact.index') }}">Hubungi Kami</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="https://siladu.layananberhentikuliah.com">Pengajuan</a>
-                </li>
+                </li> --}}
             </ul>
             @if (Auth::check())
                 <ul class="navbar-nav">

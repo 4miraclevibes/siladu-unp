@@ -5,56 +5,62 @@
 <!-- Hero Section dengan Carousel -->
 <div class="hero-section">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        @if($heroCarousels->count() > 1)
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            @foreach($heroCarousels as $index => $carousel)
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : 'false' }}"></button>
+            @endforeach
         </div>
+        @endif
         <div class="carousel-inner">
+            @forelse($heroCarousels as $index => $carousel)
+            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                <img src="{{ asset('storage/' . $carousel->image) }}" class="d-block w-100" alt="{{ $carousel->title }}">
+                <div class="carousel-caption">
+                    <h1 data-aos="fade-up">{{ $carousel->title }}</h1>
+                    @if($carousel->subtitle)
+                    <p data-aos="fade-up" data-aos-delay="200">{{ $carousel->subtitle }}</p>
+                    @endif
+                </div>
+            </div>
+            @empty
             <div class="carousel-item active">
-                <img src="{{ asset('frontend/carousel/img1.jpg') }}" class="d-block w-100" alt="Gambar 1">
+                <img src="{{ asset('frontend/carousel/img1.jpg') }}" class="d-block w-100" alt="Default">
                 <div class="carousel-caption">
                     <h1 data-aos="fade-up">UPT Laboratorium Terpadu UNP</h1>
                     <p data-aos="fade-up" data-aos-delay="200">Pusat Layanan Pengujian Berkualitas</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/carousel/img2.jpeg') }}" class="d-block w-100" alt="Gambar 2">
-                <div class="carousel-caption">
-                    <h1 data-aos="fade-up">Standar Internasional</h1>
-                    <p data-aos="fade-up" data-aos-delay="200">Terakreditasi SNI ISO/IEC 17025:2017</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/carousel/img3.jpeg') }}" class="d-block w-100" alt="Gambar 3">
-                <div class="carousel-caption">
-                    <h1 data-aos="fade-up">Fasilitas Modern</h1>
-                    <p data-aos="fade-up" data-aos-delay="200">Didukung Peralatan Terkini</p>
-                </div>
-            </div>
+            @endforelse
         </div>
+        @if($heroCarousels->count() > 1)
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
+        @endif
     </div>
 </div>
 
 <!-- Announcement Bar -->
+@if($announcementBars->count() > 0)
 <div class="announcement-bar bg-primary py-3">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between text-white">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center" style="width: 100%;">
                 <i class='bx bx-broadcast me-2'></i>
                 <marquee behavior="scroll" direction="left" scrollamount="5">
-                    Selamat datang di UPT Laboratorium Terpadu Universitas Negeri Padang - Menyediakan layanan pengujian berkualitas dengan standar internasional - Terakreditasi SNI ISO/IEC 17025:2017
+                    @foreach($announcementBars as $bar)
+                        {{ $bar->text }}{{ !$loop->last ? ' - ' : '' }}
+                    @endforeach
                 </marquee>
             </div>
         </div>
     </div>
 </div>
+@endif
 
 <!-- Welcome Section -->
 <section class="welcome-section py-5">
@@ -120,16 +126,20 @@
         <div class="row g-4">
             @foreach ($projects as $project)
             <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                <div class="card h-100 border-0 shadow-sm">
-                    <img src="{{ asset('storage/' . $project->image) }}" 
-                         class="card-img-top" 
+                <div class="card h-100 shadow-sm"
+                     style="border: 3px solid #e0e0e0; transition: all 0.4s ease; background-color: #ffffff;"
+                     onmouseover="this.style.transform='scale(1.03) translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0, 123, 255, 0.4)'; this.style.borderColor='#007bff'; this.style.borderWidth='4px'; this.style.backgroundColor='#f0f8ff'; this.querySelector('.card-title').style.color='#007bff'; this.querySelector('.card-title').style.fontWeight='bold'; this.querySelector('.btn').style.backgroundColor='#007bff'; this.querySelector('.btn').style.color='white'; this.querySelector('.btn').style.transform='scale(1.05)'; this.querySelector('.btn').style.fontWeight='bold';"
+                     onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#e0e0e0'; this.style.borderWidth='3px'; this.style.backgroundColor='#ffffff'; this.querySelector('.card-title').style.color=''; this.querySelector('.card-title').style.fontWeight=''; this.querySelector('.btn').style.backgroundColor=''; this.querySelector('.btn').style.color=''; this.querySelector('.btn').style.transform='scale(1)'; this.querySelector('.btn').style.fontWeight='';">
+                    <img src="{{ asset('storage/' . $project->image) }}"
+                         class="card-img-top"
                          alt="Gambar Pengujian"
                          style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $project->name }}</h5>
+                        <h5 class="card-title" style="transition: all 0.3s ease;">{{ $project->name }}</h5>
                         <p class="card-text text-muted">{{ Str::limit($project->description, 100) }}</p>
-                        <a href="{{ route('project.detail', $project) }}" 
-                           class="btn btn-outline-primary">
+                        <a href="{{ route('project.detail', $project) }}"
+                           class="btn btn-outline-primary"
+                           style="transition: all 0.3s ease;">
                             Lihat Detail
                         </a>
                     </div>
@@ -144,100 +154,92 @@
 <section class="news-section py-5">
     <div class="container">
         <div class="row mb-5">
-            <!-- Announcements -->
-            <div class="col-lg-6" data-aos="fade-up">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <i class='bx bx-news text-primary display-4 me-3'></i>
-                            <h3 class="card-title mb-0">Berita Terbaru</h3>
-                        </div>
-                        <div class="announcement-list">
-                            @foreach($announcements as $announcement)
-                            <div class="announcement-item mb-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="{{ route('announcement.show', $announcement) }}">
-                                            <img src="{{ asset('storage/' . $announcement->thumbnail) }}" 
-                                                 alt="{{ $announcement->title }}"
-                                                 class="img-fluid rounded mb-3"
-                                                 style="width: 100%; height: 150px; object-fit: cover;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class='bx bx-calendar text-primary me-2'></i>
-                                            <small class="text-muted">{{ $announcement->created_at->format('d M Y') }}</small>
-                                            @if($announcement->user)
-                                            <i class='bx bx-user text-primary ms-3 me-2'></i>
-                                            <small class="text-muted">{{ $announcement->user->name }}</small>
-                                            @endif
-                                        </div>
-                                        <h5 class="mb-2">
-                                            <a href="{{ route('announcement.show', $announcement) }}" 
-                                               class="text-decoration-none text-dark">
-                                                {{ $announcement->title }}
-                                            </a>
-                                        </h5>
-                                        <p class="text-muted mb-0">{!! Str::limit(strip_tags($announcement->content), 100) !!}</p>
-                                    </div>
-                                </div>
+            <!-- Announcements Section -->
+            <div class="col-12 mb-5" data-aos="fade-up">
+                <div class="d-flex align-items-center mb-4">
+                    <i class='bx bx-news text-primary display-4 me-3'></i>
+                    <h3 class="mb-0">Berita Terbaru</h3>
+                </div>
+                <div class="row g-4">
+                    @foreach($announcements->take(4) as $announcement)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card h-100 shadow-sm"
+                             style="border: 3px solid #e0e0e0; transition: all 0.4s ease; background-color: #ffffff;"
+                             onmouseover="this.style.transform='scale(1.03) translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0, 123, 255, 0.4)'; this.style.borderColor='#007bff'; this.style.borderWidth='4px'; this.style.backgroundColor='#f0f8ff'; this.querySelector('.card-title').style.color='#007bff'; this.querySelector('.card-title').style.fontWeight='bold'; this.querySelector('.btn').style.backgroundColor='#007bff'; this.querySelector('.btn').style.color='white'; this.querySelector('.btn').style.transform='scale(1.05)'; this.querySelector('.btn').style.fontWeight='bold';"
+                             onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#e0e0e0'; this.style.borderWidth='3px'; this.style.backgroundColor='#ffffff'; this.querySelector('.card-title').style.color=''; this.querySelector('.card-title').style.fontWeight=''; this.querySelector('.btn').style.backgroundColor=''; this.querySelector('.btn').style.color=''; this.querySelector('.btn').style.transform='scale(1)'; this.querySelector('.btn').style.fontWeight='';">
+                            <div class="position-relative">
+                                <img src="{{ asset('storage/' . $announcement->thumbnail) }}"
+                                     alt="{{ $announcement->title }}"
+                                     class="card-img-top"
+                                     style="height: 200px; object-fit: cover;">
+                                <span class="badge bg-primary position-absolute bottom-0 end-0 m-2">
+                                    {{ $announcement->created_at->format('M Y') }}
+                                </span>
                             </div>
-                            @endforeach
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title mb-3" style="transition: all 0.3s ease;">
+                                    {{ Str::limit($announcement->title, 50) }}
+                                </h5>
+                                <p class="card-text text-muted mb-3 flex-grow-1">
+                                    {!! Str::limit(strip_tags($announcement->content), 80) !!}
+                                </p>
+                                <a href="{{ route('announcement.show', $announcement) }}"
+                                   class="btn btn-outline-primary btn-sm mt-auto"
+                                   style="transition: all 0.3s ease;">
+                                    Selengkapnya...
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
 
-            <!-- Articles -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <i class='bx bx-book-open text-primary display-4 me-3'></i>
-                            <h3 class="card-title mb-0">Artikel Terbaru</h3>
-                        </div>
-                        <div class="article-list">
-                            @foreach($articles as $article)
-                            <div class="article-item mb-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <a href="{{ route('article.show', $article) }}">
-                                            <img src="{{ asset('storage/' . $article->thumbnail) }}" 
-                                                 alt="{{ $article->title }}"
-                                                 class="img-fluid rounded mb-3"
-                                                 style="width: 100%; height: 150px; object-fit: cover;">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <i class='bx bx-calendar text-primary me-2'></i>
-                                            <small class="text-muted">{{ $article->created_at->format('d M Y') }}</small>
-                                            @if($article->user)
-                                            <i class='bx bx-user text-primary ms-3 me-2'></i>
-                                            <small class="text-muted">{{ $article->user->name }}</small>
-                                            @endif
-                                        </div>
-                                        <h5 class="mb-2">
-                                            <a href="{{ route('article.show', $article) }}" 
-                                               class="text-decoration-none text-dark">
-                                                {{ $article->title }}
-                                            </a>
-                                        </h5>
-                                        <p class="text-muted mb-2">{!! Str::limit(strip_tags($article->content), 100) !!}</p>
-                                    </div>
-                                </div>
+            <!-- Articles Section -->
+            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="d-flex align-items-center mb-4">
+                    <i class='bx bx-book-open text-primary display-4 me-3'></i>
+                    <h3 class="mb-0">Artikel Terbaru</h3>
+                </div>
+                <div class="row g-4">
+                    @foreach($articles->take(4) as $article)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card h-100 shadow-sm"
+                             style="border: 3px solid #e0e0e0; transition: all 0.4s ease; background-color: #ffffff;"
+                             onmouseover="this.style.transform='scale(1.03) translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0, 123, 255, 0.4)'; this.style.borderColor='#007bff'; this.style.borderWidth='4px'; this.style.backgroundColor='#f0f8ff'; this.querySelector('.card-title').style.color='#007bff'; this.querySelector('.card-title').style.fontWeight='bold'; this.querySelector('.btn').style.backgroundColor='#007bff'; this.querySelector('.btn').style.color='white'; this.querySelector('.btn').style.transform='scale(1.05)'; this.querySelector('.btn').style.fontWeight='bold';"
+                             onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#e0e0e0'; this.style.borderWidth='3px'; this.style.backgroundColor='#ffffff'; this.querySelector('.card-title').style.color=''; this.querySelector('.card-title').style.fontWeight=''; this.querySelector('.btn').style.backgroundColor=''; this.querySelector('.btn').style.color=''; this.querySelector('.btn').style.transform='scale(1)'; this.querySelector('.btn').style.fontWeight='';">
+                            <div class="position-relative">
+                                <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                     alt="{{ $article->title }}"
+                                     class="card-img-top"
+                                     style="height: 200px; object-fit: cover;">
+                                <span class="badge bg-primary position-absolute bottom-0 end-0 m-2">
+                                    {{ $article->created_at->format('M Y') }}
+                                </span>
                             </div>
-                            @endforeach
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title mb-3" style="transition: all 0.3s ease;">
+                                    {{ Str::limit($article->title, 50) }}
+                                </h5>
+                                <p class="card-text text-muted mb-3 flex-grow-1">
+                                    {!! Str::limit(strip_tags($article->content), 80) !!}
+                                </p>
+                                <a href="{{ route('article.show', $article) }}"
+                                   class="btn btn-outline-primary btn-sm mt-auto"
+                                   style="transition: all 0.3s ease;">
+                                    Selengkapnya...
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About Section -->
+{{-- <!-- About Section -->
 <section class="about-section py-5 bg-light">
     <div class="container">
         <div class="row align-items-center">
@@ -292,7 +294,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Statistik & Pencapaian Section -->
 <section class="achievement-section py-5">
@@ -339,7 +341,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Timeline Pencapaian -->
         <section class="timeline-section py-5">
             <div class="container">
@@ -352,6 +354,33 @@
                         <div class="card border-0 shadow-sm">
                             <div class="card-body p-4">
                                 <div class="timeline">
+                                    @forelse($timelines as $timeline)
+                                    <div class="timeline-item">
+                                        <div class="timeline-dot bg-{{ $timeline->color }}"></div>
+                                        <div class="timeline-content">
+                                            <div class="row align-items-center">
+                                                @if($timeline->image)
+                                                <div class="col-md-4">
+                                                    <img src="{{ asset('storage/' . $timeline->image) }}"
+                                                         class="img-fluid rounded shadow-sm mb-3 mb-md-0"
+                                                         alt="{{ $timeline->year }}">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h5>{{ $timeline->year }}</h5>
+                                                    <h6 class="fw-bold">{{ $timeline->title }}</h6>
+                                                    <p>{{ $timeline->description }}</p>
+                                                </div>
+                                                @else
+                                                <div class="col-12">
+                                                    <h5>{{ $timeline->year }}</h5>
+                                                    <h6 class="fw-bold">{{ $timeline->title }}</h6>
+                                                    <p>{{ $timeline->description }}</p>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @empty
                                     <div class="timeline-item">
                                         <div class="timeline-dot bg-primary"></div>
                                         <div class="timeline-content">
@@ -408,6 +437,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -458,6 +488,47 @@
 
 .card:hover {
     transform: translateY(-5px);
+}
+
+/* Project Card Hover Effects - KONTRAS TINGGI */
+.testing-section .card {
+    transition: all 0.4s ease;
+    border: 3px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+/* Effect 1: Pop up ketika kursor melewati area */
+.testing-section .card:hover {
+    transform: scale(1.1) translateY(-15px) !important;
+    box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4) !important;
+}
+
+/* Effect 2: Garis tepi berubah warna */
+.testing-section .card:hover {
+    border-color: #007bff !important;
+    border-width: 4px !important;
+    background-color: #f0f8ff !important;
+}
+
+/* Effect 3: Kotak selengkapnya berubah warna */
+.testing-section .card .btn-outline-primary {
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 2px solid #007bff;
+}
+
+.testing-section .card:hover .btn-outline-primary {
+    background-color: #007bff !important;
+    color: white !important;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5) !important;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+.testing-section .card:hover .card-title {
+    color: #007bff !important;
+    font-weight: bold;
 }
 
 .accordion-item {
@@ -591,17 +662,17 @@
     .timeline::before {
         left: 0;
     }
-    
+
     .timeline-dot {
         left: 0;
         margin-left: -8px;
     }
-    
+
     .timeline-content {
         width: calc(100% - 30px);
         margin-left: 30px;
     }
-    
+
     .timeline-item:nth-child(odd) .timeline-content {
         margin-left: 30px;
     }
@@ -626,6 +697,7 @@
 .btn-link:hover {
     text-decoration: underline;
 }
+
 </style>
 @endpush
 

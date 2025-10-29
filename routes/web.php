@@ -14,6 +14,11 @@ use App\Http\Controllers\Backend\GalleryController as BackendGalleryController;
 use App\Http\Controllers\Backend\ToolController as BackendToolController;
 use App\Http\Controllers\Backend\DownloadController as BackendDownloadController;
 use App\Http\Controllers\Frontend\DownloadController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Backend\ContactController as BackendContactController;
+use App\Http\Controllers\Backend\AnnouncementBarController;
+use App\Http\Controllers\Backend\HeroCarouselController;
+use App\Http\Controllers\Backend\TimelineController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
@@ -23,9 +28,9 @@ Route::get('/profiles', function () {
     return view('pages.frontend.profile');
 })->name('profiles');
 
-Route::get('/contact', function () {
-    return view('pages.frontend.contact');
-})->name('contact');
+// Contact Routes (Frontend)
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 
 Route::get('/dashboard', function () {
@@ -96,6 +101,33 @@ Route::middleware('auth')->group(function () {
     Route::post('downloads', [BackendDownloadController::class, 'store'])->name('downloads.store');
     Route::put('downloads/{download}', [BackendDownloadController::class, 'update'])->name('downloads.update');
     Route::delete('downloads/{download}', [BackendDownloadController::class, 'destroy'])->name('downloads.destroy');
+    //Contacts
+    Route::get('contacts', [BackendContactController::class, 'index'])->name('contacts.index');
+    Route::get('contacts/{contact}', [BackendContactController::class, 'show'])->name('contacts.show');
+    Route::delete('contacts/{contact}', [BackendContactController::class, 'destroy'])->name('contacts.destroy');
+    Route::patch('contacts/{contact}/mark-read', [BackendContactController::class, 'markAsRead'])->name('contacts.mark-read');
+    Route::patch('contacts/{contact}/mark-unread', [BackendContactController::class, 'markAsUnread'])->name('contacts.mark-unread');
+    //Announcement Bars
+    Route::get('announcement-bars', [AnnouncementBarController::class, 'index'])->name('announcement-bars.index');
+    Route::get('announcement-bars/create', [AnnouncementBarController::class, 'create'])->name('announcement-bars.create');
+    Route::post('announcement-bars', [AnnouncementBarController::class, 'store'])->name('announcement-bars.store');
+    Route::get('announcement-bars/{announcementBar}/edit', [AnnouncementBarController::class, 'edit'])->name('announcement-bars.edit');
+    Route::put('announcement-bars/{announcementBar}', [AnnouncementBarController::class, 'update'])->name('announcement-bars.update');
+    Route::delete('announcement-bars/{announcementBar}', [AnnouncementBarController::class, 'destroy'])->name('announcement-bars.destroy');
+    //Hero Carousels
+    Route::get('hero-carousels', [HeroCarouselController::class, 'index'])->name('hero-carousels.index');
+    Route::get('hero-carousels/create', [HeroCarouselController::class, 'create'])->name('hero-carousels.create');
+    Route::post('hero-carousels', [HeroCarouselController::class, 'store'])->name('hero-carousels.store');
+    Route::get('hero-carousels/{heroCarousel}/edit', [HeroCarouselController::class, 'edit'])->name('hero-carousels.edit');
+    Route::put('hero-carousels/{heroCarousel}', [HeroCarouselController::class, 'update'])->name('hero-carousels.update');
+    Route::delete('hero-carousels/{heroCarousel}', [HeroCarouselController::class, 'destroy'])->name('hero-carousels.destroy');
+    //Timelines
+    Route::get('timelines', [TimelineController::class, 'index'])->name('timelines.index');
+    Route::get('timelines/create', [TimelineController::class, 'create'])->name('timelines.create');
+    Route::post('timelines', [TimelineController::class, 'store'])->name('timelines.store');
+    Route::get('timelines/{timeline}/edit', [TimelineController::class, 'edit'])->name('timelines.edit');
+    Route::put('timelines/{timeline}', [TimelineController::class, 'update'])->name('timelines.update');
+    Route::delete('timelines/{timeline}', [TimelineController::class, 'destroy'])->name('timelines.destroy');
 });
 
 require __DIR__.'/auth.php';
