@@ -23,7 +23,7 @@ class GalleryController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'status' => 'required|in:draft,publish',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:20480'
         ]);
 
         $validated['user_id'] = Auth::id();
@@ -52,7 +52,7 @@ class GalleryController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'status' => 'required|in:draft,publish',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480'
         ]);
 
         $gallery->update($validated);
