@@ -26,7 +26,7 @@ class TimelineController extends Controller
             'year' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
             'color' => 'required|string|in:primary,success,info,warning,danger',
             'is_active' => 'boolean',
             'order' => 'required|integer'
@@ -55,7 +55,7 @@ class TimelineController extends Controller
             'year' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
             'color' => 'required|string|in:primary,success,info,warning,danger',
             'is_active' => 'boolean',
             'order' => 'required|integer'
